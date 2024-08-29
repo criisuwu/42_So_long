@@ -97,7 +97,23 @@ int check_border(t_map *map)
         row = 0;
         while (map->map[col][row])
         {
-            if (map->map[0][row] != '1' || map->map[col][0] != '1' || map->map[map->map_wid - 1][row] != '1' || map->)
+            if (map->map[0][row] != '1'
+                || map->map[col][0] != '1'
+                || map->map[map->map_wid - 1][row] != '1'
+                || map->map[col][map->map_hei - 1] != '1')
+                ft_error(5, map);
+            row++;
         }
+        col++;
     }
+    return (1);
+}
+
+void    check_element_num(t_map *map)
+{
+    map->coin_cop = map->coin;
+    map->coin_cop_2 = map->coin;
+    map->player_copy = map->player_copy;
+    if (map->coin < 1 || map->exit != 1 || map->n_players != 1)
+        ft_error(6, map);
 }
