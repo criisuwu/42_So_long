@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 16:22:56 by chomobon          #+#    #+#             */
-/*   Updated: 2024/08/28 18:46:33 by chomobon         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:56:42 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void    count_elements(t_map  *map)
             }
         }
     }
-    check_obj_map(map); //no
+    check_element_num(map);
 }
 
 int check_border(t_map *map)
