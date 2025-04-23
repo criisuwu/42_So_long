@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:17:11 by chomobon          #+#    #+#             */
-/*   Updated: 2024/08/07 15:03:30 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:07:43 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	ft_strlen(const char *str)
 	return (x);
 }
 
-char	*ft_strjoin(char *first_str, char *buf)
+char	*ft_strjoin_gnl(char *first_str, char *buf)
 {
 	size_t	i;
 	size_t	j;

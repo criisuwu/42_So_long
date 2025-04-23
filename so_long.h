@@ -5,12 +5,17 @@
 #define PLAYER "./image/duck.xpm"
 #define EXIT
 #define FLOOR
+#define A 0
+#define S 1
+#define D 2
+#define W 13
+#define ESC 53
 
 #include <stdio.h>
-#include <mlx.h>
-#include "libft.h"
+#include "minilibx-linux/mlx.h"
+#include "libft/libft.h"
 #include "printf.h"
-#include "get_next_line.h"
+#include "libft/get_next_line.h"
 
 typedef struct game{
     int coin;
@@ -31,7 +36,7 @@ typedef struct game{
     void *mlx;
     void *mlx_wind;
     size_t map_w;
-    size_t map_f;
+    size_t map_h;
 }t_map;
 
 #endif
