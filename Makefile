@@ -6,12 +6,12 @@
 #    By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 13:51:49 by chomobon          #+#    #+#              #
-#    Updated: 2025/07/11 15:41:08 by chomobon         ###   ########.fr        #
+#    Updated: 2025/07/11 16:33:13 by chomobon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long.a
-SRCS = so_long.c
+NAME = so_long
+SRCS = so_long.c so_long_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -30,7 +30,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -C $(MINI)
 	@make -C $(LIBFT)
-	$(CC) $(CFLAGS) $(LIBFT_LIB) -L$(MINI) -lmlx -lXext -lX11 -lm -lbsd $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_LIB) -L$(MINI) -lmlx -lXext -lX11 -lm -lbsd -o $(NAME)
 $(LIBFT_LIB):
 	@make -C $(LIBFT)
 
