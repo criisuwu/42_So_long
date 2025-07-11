@@ -6,13 +6,13 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:10:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/04/23 14:13:21 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/11 14:28:54 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_error()
+void ft_err()
 {
     ft_putendl_fd("Error", 2);
     exit(EXIT_FAILURE);

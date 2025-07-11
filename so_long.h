@@ -17,6 +17,8 @@
 #include "printf.h"
 #include "libft/get_next_line.h"
 
+void    ft_err();
+
 typedef struct game{
     int coin;
     int exit;
