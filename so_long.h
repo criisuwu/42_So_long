@@ -17,10 +17,6 @@
 #include "printf.h"
 #include "libft/get_next_line.h"
 
-void    ft_err();
-int get_map_height(char **argv);
-int get_map_width(char **argv);
-
 typedef struct game{
     int coin;
     int exit;
@@ -42,5 +38,10 @@ typedef struct game{
     size_t map_w;
     size_t map_h;
 }t_map;
+
+void    ft_err();
+int get_map_height(t_map game);
+int get_map_width(t_map game);
+char **read_map(char **argv, t_map game);
 
 #endif

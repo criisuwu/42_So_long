@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/14 17:05:16 by chomobon         ###   ########.fr       */
+/*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
+/*   Updated: 2025/07/14 15:05:49 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char **argv)
+void is_rectangle(size_t map_w, size_t map_h)
 {
-    t_map game;
-
-    (void) argv;
-    if (argc < 2)
+    if (map_h < map_w)
         ft_err();
-    game.mlx = mlx_init();
-    game.map = read_map(argv, game);
-    game.map_w = get_map_width(game);
-    game.map_h = get_map_height(game);
-    game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56, game.map_h * 56, "So_Long");
-    mlx_loop(game.mlx);
-    return (0);
+}
+
+void map_is_valid(char *argv)
+{
+    int fd;
+    char *line;
+    int i;
+
+    i = 0;
+    fd = open(argv[1], O_RDONLY);
+    line = get_next_line(fd);
+    if (line[i] != '1')
+        ft_err();
+    
 }

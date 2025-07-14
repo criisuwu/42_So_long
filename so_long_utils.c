@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:10:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/14 13:59:28 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/14 17:07:26 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,42 +18,38 @@ void ft_err()
     exit(EXIT_FAILURE);
 }
 
-int get_map_width(char **argv)
+int get_map_width(t_map game)
 {
-    char *line_map;
-    int fd;
-    int width;
-
-    fd = open(argv[1], O_RDONLY);
-    if (fd == -1)
-        ft_err();
-    line_map = get_next_line(fd);
-    if (!line_map)
-    {
-        close(fd);
-        ft_err();
-    }
-    width = strlen(line_map);
-    free (line_map);
-    close (fd);
-    return (width);
+    game.map_w = ft_strlen(game.map[0]);
+    return (game.map_w);
 }
 
-int get_map_height(char **argv)
+int get_map_height(t_map game)
 {
-    char *line_map;
-    int fd;
     int i;
 
     i = 0;
+    while (game.map != NULL)
+    {
+        i++;
+    }
+    return (i);
+}
+
+char **read_map(char **argv, t_map game)
+{
+    char *line_map;
+    char *str;
+    int fd;
+
+    str = NULL;
     fd = open(argv[1], O_RDONLY);
     if (fd == -1)
         ft_err();
     while ((line_map = get_next_line(fd)) != NULL)
     {
-        i++;
-        free(line_map);
+        str = ft_strjoin(str, line_map);
     }
-    close(fd);
-    return (i);
+    game.map = ft_split(str, '\n');
+    return (game.map);
 }
