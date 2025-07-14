@@ -6,7 +6,7 @@
 #    By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 13:51:49 by chomobon          #+#    #+#              #
-#    Updated: 2025/07/11 16:33:13 by chomobon         ###   ########.fr        #
+#    Updated: 2025/07/14 13:54:24 by chomobon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MINI = minilibx-linux
 MINI_LIB = minilibx-linux/libmlx.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 RM = rm -f
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:04:22 by chomobon          #+#    #+#             */
-/*   Updated: 2024/08/07 16:15:21 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/14 13:52:38 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_place_static(char *str)
 		i++;
 	if (!str[i])
 		return (free(str), NULL);
-	position = (char *)malloc(sizeof(char) * (ft_strlen(str) - i + 1));
+	position = (char *)malloc(sizeof(char) * (ft_strlen_gnl(str) - i + 1));
 	if (!position)
 		return (free(str), NULL);
 	i++;
@@ -73,7 +73,7 @@ char	*ft_read(int fd, char *str)
 	if (!buf)
 		return (free(str), NULL);
 	bytes = 1;
-	while (!ft_strchr(str, '\n') && bytes > 0)
+	while (!ft_strchr_gnl(str, '\n') && bytes > 0)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes == -1)
@@ -83,7 +83,7 @@ char	*ft_read(int fd, char *str)
 			return (NULL);
 		}
 		buf[bytes] = '\0';
-		str = ft_strjoin(str, buf);
+		str = ft_strjoin_gnl(str, buf);
 	}
 	free(buf);
 	return (str);

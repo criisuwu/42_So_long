@@ -18,6 +18,8 @@
 #include "libft/get_next_line.h"
 
 void    ft_err();
+int get_map_height(char **argv);
+int get_map_width(char **argv);
 
 typedef struct game{
     int coin;
