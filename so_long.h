@@ -40,8 +40,11 @@ typedef struct game{
 }t_map;
 
 void    ft_err();
+void map_is_valid(t_map game);
+void is_rectangle(t_map game);
 int get_map_height(t_map game);
 int get_map_width(t_map game);
+int key_hook(int keycode, t_map game);
 char **read_map(char **argv, t_map game);
 
 #endif

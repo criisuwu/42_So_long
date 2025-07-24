@@ -6,12 +6,12 @@
 #    By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 13:51:49 by chomobon          #+#    #+#              #
-#    Updated: 2025/07/14 13:54:24 by chomobon         ###   ########.fr        #
+#    Updated: 2025/07/24 16:44:50 by chomobon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-SRCS = so_long.c so_long_utils.c
+SRCS = so_long.c so_long_utils.c map_check.c hook_check.c
 
 OBJS = $(SRCS:.c=.o)
 
