@@ -41,7 +41,9 @@ typedef struct game{
 
 void    ft_err();
 void map_is_valid(t_map game);
-void is_rectangle(t_map game);
+void has_one_player(t_map game);
+void has_one_exit(t_map game);
+void has_collec(t_map game);
 int get_map_height(t_map game);
 int get_map_width(t_map game);
 int key_hook(int keycode, t_map game);

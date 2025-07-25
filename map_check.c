@@ -6,17 +6,11 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/24 17:42:03 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/25 13:33:30 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void is_rectangle(t_map game)
-{
-    if (game.map_h == game.map_w || game.map_h > game.map_w)
-        ft_err();
-}
 
 void map_is_valid(t_map game)
 {
@@ -47,3 +41,72 @@ void map_is_valid(t_map game)
     }
 }
 
+void has_one_player(t_map game)
+{
+    int count_p;
+    int i;
+    int j;
+
+    count_p = 0;
+    i = 1;
+    j = 0;
+    while (game.map[i][j])
+    {
+        while(game.map[i][j])
+        {
+            if(game.map[i][j] == 'P')
+                count_p++;
+            j++;
+        }
+        i++;
+    }
+    if(count_p != 1)
+        ft_err();
+}
+
+void has_one_exit(t_map game)
+{
+    int count_exit;
+    int i;
+    int j;
+
+    count_exit = 0;
+    i = 1;
+    j = 0;
+    while (game.map[i][j])
+    {
+        while(game.map[i][j])
+        {
+            if (game.map[i][j] == 'E')
+                count_exit++;
+            j++;
+        }
+        i++;
+    }
+    if (count_exit != 1)
+        ft_err();
+}
+
+void has_collec(t_map game)
+{
+    int count_c;
+    int i;
+    int j;
+
+    count_c = 0;
+    i = 1;
+    j = 0;
+    while (game.map[i][j])
+    {
+        while(game.map[i][j])
+        {
+            if (game.map[i][j] == 'C')
+                count_c++;
+            j++;
+        }
+        i++;
+    }
+    printf("%d\n", count_c);
+    if (count_c < 1)
+        ft_err();
+}
