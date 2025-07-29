@@ -3,7 +3,7 @@
 #define COIN 
 #define WALL "./image/bush.xpm"
 #define PLAYER "./image/duck.xpm"
-#define EXIT
+#define EXIT "./image/exit.xpm"
 #define FLOOR "./image/floor.xpm"
 #define A 0
 #define S 1
@@ -31,6 +31,8 @@ typedef struct game{
     int wall_h;
     int floor_w;
     int floor_h;
+    int exit_w;
+    int exit_h;
     char **map;
     void *player_img;
     void *exit_img;
@@ -50,6 +52,7 @@ void has_one_exit(t_map game);
 void has_collect(t_map game);
 void put_wall(t_map game);
 void put_floor(t_map game);
+void put_exit(t_map game);
 void ft_err_arg();
 int get_map_height(t_map game);
 int get_map_width(t_map game);

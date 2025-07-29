@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 15:05:40 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:38:09 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main(int argc, char **argv)
     game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56, game.map_h * 56, "So_Long");
     put_wall(game);
     put_floor(game);
+    put_exit(game);
     mlx_key_hook(game.mlx_wind, key_hook, &game);
     mlx_loop(game.mlx);
     return (0);

@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:49:10 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 15:05:20 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:39:03 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,27 @@ void put_floor(t_map game)
         {
             if (game.map[i][j] == '0')
                 mlx_put_image_to_window(game.mlx, game.mlx_wind, game.floor,
+                    j * 56, i * 56);
+            j++;
+        }
+        i++;
+    }
+}
+
+void put_exit(t_map game)
+{
+    int i;
+    int j;
+
+    i = 0;
+    game.exit_img = mlx_xpm_file_to_image(game.mlx, EXIT, &game.exit_w, &game.exit_h);
+    while(game.map[i])
+    {
+        j = 0;
+        while(game.map[i][j])
+        {
+            if (game.map[i][j] == 'E')
+                mlx_put_image_to_window(game.mlx, game.mlx_wind, game.exit_img,
                     j * 56, i * 56);
             j++;
         }
