@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 14:27:19 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:46:25 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int main(int argc, char **argv)
     game.map_w = get_map_width(game);
     game.map_h = get_map_height(game);
     map_is_valid(game);
-    //has_one_player(game);
+    has_one_player(game);
     has_one_exit(game);
-    //has_collec(game);
+    has_collect(game);
     game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56, game.map_h * 56, "So_Long");
     put_wall(game);
     mlx_key_hook(game.mlx_wind, key_hook, &game);

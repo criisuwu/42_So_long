@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 14:25:07 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:46:11 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void has_one_player(t_map game)
     count_p = 0;
     i = 1;
     j = 0;
-    while (game.map[i][j])
+    while (game.map[i])
     {
         while(game.map[i][j])
         {
@@ -58,8 +58,10 @@ void has_one_player(t_map game)
                 count_p++;
             j++;
         }
+        j = 0;
         i++;
     }
+    printf("%d\n", count_p);
     if(count_p != 1)
         ft_err(4);
 }
@@ -73,7 +75,7 @@ void has_one_exit(t_map game)
     count_exit = 0;
     i = 1;
     j = 0;
-    while (game.map[i][j])
+    while (game.map[i])
     {
         while(game.map[i][j])
         {
@@ -81,13 +83,14 @@ void has_one_exit(t_map game)
                 count_exit++;
             j++;
         }
+        j = 0;
         i++;
     }
     if (count_exit != 1)
         ft_err(4);
 }
 
-void has_collec(t_map game)
+void has_collect(t_map game)
 {
     int count_c;
     int i;
@@ -96,7 +99,7 @@ void has_collec(t_map game)
     count_c = 0;
     i = 1;
     j = 0;
-    while (game.map[i][j])
+    while (game.map[i])
     {
         while(game.map[i][j])
         {
@@ -104,9 +107,9 @@ void has_collec(t_map game)
                 count_c++;
             j++;
         }
+        j = 0;
         i++;
     }
-    printf("%d\n", count_c);
     if (count_c < 1)
         ft_err(4);
 }

@@ -45,7 +45,7 @@ void ft_err(int option);
 void map_is_valid(t_map game);
 void has_one_player(t_map game);
 void has_one_exit(t_map game);
-void has_collec(t_map game);
+void has_collect(t_map game);
 void put_wall(t_map game);
 void ft_err_arg();
 int get_map_height(t_map game);
