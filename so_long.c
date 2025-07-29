@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 16:38:09 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:56:06 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int main(int argc, char **argv)
     put_wall(game);
     put_floor(game);
     put_exit(game);
+    put_player(game);
+    put_coin(game);
     mlx_key_hook(game.mlx_wind, key_hook, &game);
     mlx_loop(game.mlx);
     return (0);
