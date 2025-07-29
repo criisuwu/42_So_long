@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 #define COIN 
-#define WALL
+#define WALL "./image/bush.xpm"
 #define PLAYER "./image/duck.xpm"
 #define EXIT
 #define FLOOR
@@ -27,6 +27,8 @@ typedef struct game{
     int exit_y;
     int player_x;
     int player_y;
+    int wall_w;
+    int wall_h;
     char **map;
     void *player_img;
     void *exit_img;
@@ -39,11 +41,13 @@ typedef struct game{
     size_t map_h;
 }t_map;
 
-void    ft_err();
+void ft_err(int option);
 void map_is_valid(t_map game);
 void has_one_player(t_map game);
 void has_one_exit(t_map game);
 void has_collec(t_map game);
+void put_wall(t_map game);
+void ft_err_arg();
 int get_map_height(t_map game);
 int get_map_width(t_map game);
 int key_hook(int keycode, t_map game);
