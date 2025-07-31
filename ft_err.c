@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 14:13:37 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 14:24:54 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:48:33 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ void ft_err(int option)
     }
     else if(option == 4)
     {
-        ft_putendl_fd("TOO MANY OBJECTS", 2);
+        ft_putendl_fd("OBJECTS ERROR", 2);
+        exit(EXIT_FAILURE);
+    }
+    else if(option == 5)
+    {
+        ft_putendl_fd("CAN'T REACH EXIT", 2);
         exit(EXIT_FAILURE);
     }
 }

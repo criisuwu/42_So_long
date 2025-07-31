@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 17:02:48 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:51:32 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void map_is_valid(t_map game)
             ft_err(3);
         else
             i++;
-    }i = 0;
+    }
+    i = 0;
     while (game.map[0][i])
     {
         if (game.map[0][i] == '1')
@@ -61,7 +62,6 @@ void has_one_player(t_map game)
         j = 0;
         i++;
     }
-    printf("%d\n", count_p);
     if(count_p != 1)
         ft_err(4);
 }
@@ -113,3 +113,8 @@ void has_collect(t_map game)
     if (count_c < 1)
         ft_err(4);
 }
+
+// void floodfill(t_map game)
+// {
+    
+// }
