@@ -6,17 +6,11 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:10:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/29 14:21:32 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:06:34 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// void ft_err()
-// {
-//     ft_putendl_fd("Error", 2);
-//     exit(EXIT_FAILURE);
-// }
 
 int get_map_width(t_map game)
 {

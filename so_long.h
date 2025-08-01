@@ -5,11 +5,11 @@
 #define PLAYER "./image/duck.xpm"
 #define EXIT "./image/exit.xpm"
 #define FLOOR "./image/floor.xpm"
-#define A 0
-#define S 1
-#define D 2
-#define W 13
-#define ESC 53
+#define A 97
+#define S 115
+#define D 100
+#define W 119
+#define ESC 65307
 
 #include <stdio.h>
 #include "minilibx-linux/mlx.h"
@@ -63,6 +63,7 @@ void ft_err_arg();
 int get_map_height(t_map game);
 int get_map_width(t_map game);
 int key_hook(int keycode, t_map game);
+int mouse_hook(int mouse, t_map game);
 char **read_map(char **argv, t_map game);
 
 #endif
