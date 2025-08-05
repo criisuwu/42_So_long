@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/05 16:39:48 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/05 19:57:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void move_player(t_map *game, int new_x, int new_y)
             printf("x nueva: %d\n", game->player_x);
             game->player_y = new_y;
             printf("x nueva: %d\n", game->player_y);
-            game->map[new_x][new_y] = 'P';
+            game->map[new_y][new_x] = 'P';
             game->mvs++;
             redraw_map(game);
         }
