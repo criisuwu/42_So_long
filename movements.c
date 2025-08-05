@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/05 20:32:58 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/05 21:58:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,33 @@ void redraw_map(t_map *game)
     int j;
 
     i = 0;
+/*  if (mlx_clear_window(game->mlx, game->mlx_wind) == 0)
+    {
+        ft_putendl_fd("Error: Failed to clear window", 2);
+        exit(EXIT_FAILURE);
+    }*/
+    while(i < (int)game->map_h)
+    {
+        j = 0;
+        while(j < (int)game->map_w)
+        {
+            put_floor(*game);
+            put_coin(*game);
+            put_player(*game);
+            put_exit(*game);
+            put_wall(*game);
+            j++;
+        }
+        i++;
+    }
+}
+
+/*void redraw_map(t_map *game)
+{
+    int i;
+    int j;
+
+    i = 0;
     mlx_clear_window(game->mlx, game->mlx_wind);
     while(i < (int)game->map_h)
     {
@@ -95,4 +122,4 @@ void redraw_map(t_map *game)
         }
         i++;
     }
-}
+}*/
