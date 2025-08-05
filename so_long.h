@@ -50,7 +50,9 @@ typedef struct game{
 }t_map;
 
 void ft_err(int option);
+void ft_err_arg();
 void map_is_valid(t_map game);
+void move_player(t_map *game, int new_x, int new_y);
 void has_one_player(t_map game);
 void has_one_exit(t_map game);
 void has_collect(t_map game);
@@ -59,11 +61,13 @@ void put_floor(t_map game);
 void put_exit(t_map game);
 void put_player(t_map game);
 void put_coin(t_map game);
-void ft_err_arg();
+void redraw_map(t_map *game);
+void	init_player_position(t_map *game);
 int get_map_height(t_map game);
 int get_map_width(t_map game);
-int key_hook(int keycode, t_map game);
+int key_hook(int keycode, t_map *game);
 int mouse_hook(int mouse, t_map game);
+int not_wall(t_map *game, int x, int y);
 char **read_map(char **argv, t_map game);
 
 #endif
