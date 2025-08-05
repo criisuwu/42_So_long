@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/31 13:51:32 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:26:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,10 @@ void has_one_exit(t_map game)
 
 void has_collect(t_map game)
 {
-    int count_c;
     int i;
     int j;
 
-    count_c = 0;
+    game.coin = 0;
     i = 1;
     j = 0;
     while (game.map[i])
@@ -104,13 +103,13 @@ void has_collect(t_map game)
         while(game.map[i][j])
         {
             if (game.map[i][j] == 'C')
-                count_c++;
+                game.coin++;
             j++;
         }
         j = 0;
         i++;
     }
-    if (count_c < 1)
+    if (game.coin < 1)
         ft_err(4);
 }
 

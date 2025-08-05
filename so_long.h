@@ -19,6 +19,7 @@
 
 typedef struct game{
     int coin;
+    int collected_coin;
     int exit;
     int mvs;
     int n_players;
