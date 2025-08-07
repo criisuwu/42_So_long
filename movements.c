@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 16:15:01 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/07 17:52:14 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void move_player(t_map *game, int new_x, int new_y)
     tile = not_wall(game, new_x, new_y);
     if(tile)
     {
+		printf("coins: %d\n", game->coin);
+		printf("coins collected: %d\n", game->collected_coin);
         if (game->map[new_y][new_x] == 'E'
 		&& (game->collected_coin == game->coin))
 		{

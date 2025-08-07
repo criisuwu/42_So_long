@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 16:01:53 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/07 17:54:01 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,4 @@ void has_collect(t_map *game)
     if (coin < 1)
         ft_err(4);
     game->coin = coin;
-
 }
-
-// void floodfill(t_map game)
-// {
-    
-// }
