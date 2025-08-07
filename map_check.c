@@ -3,46 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 17:54:01 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/07 20:20:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void map_is_valid(t_map game)
+void map_is_valid(t_map *game)
 {
     int i;
     
     i = 0;
-    while (game.map[i])
+    while (game->map[i])
     {
-        if (game.map[i][0] != '1' || game.map[i][game.map_w - 1] != '1')
+        if (game->map[i][0] != '1' || game->map[i][game->map_w - 1] != '1')
             ft_err(3);
         else
             i++;
     }
     i = 0;
-    while (game.map[0][i])
+    while (game->map[0][i])
     {
-        if (game.map[0][i] == '1')
+        if (game->map[0][i] == '1')
             i++;
-        else if(game.map[0][i] != '1')
+        else if(game->map[0][i] != '1')
             ft_err(3);
     }
     i = 0;
-    while (game.map[game.map_h - 1][i])
+    while (game->map[game->map_h - 1][i])
     {
-        if (game.map[game.map_h - 1][i] == '1')
+        if (game->map[game->map_h - 1][i] == '1')
             i++;
-        else if(game.map[game.map_h - 1][i] != '1')
+        else if(game->map[game->map_h - 1][i] != '1')
             ft_err(3);
     }
 }
 
-void has_one_player(t_map game)
+void has_one_player(t_map *game)
 {
     int count_p;
     int i;
@@ -50,12 +50,12 @@ void has_one_player(t_map game)
 
     count_p = 0;
     i = 1;
-    while (game.map[i])
+    while (game->map[i])
     {
         j = 0;
-        while(game.map[i][j])
+        while(game->map[i][j])
         {
-            if(game.map[i][j] == 'P')
+            if(game->map[i][j] == 'P')
                 count_p++;
             j++;
         }
@@ -65,7 +65,7 @@ void has_one_player(t_map game)
         ft_err(4);
 }
 
-void has_one_exit(t_map game)
+void has_one_exit(t_map *game)
 {
     int count_exit;
     int i;
@@ -73,12 +73,12 @@ void has_one_exit(t_map game)
 
     count_exit = 0;
     i = 1;
-    while (game.map[i])
+    while (game->map[i])
     {
         j = 0;
-        while(game.map[i][j])
+        while(game->map[i][j])
         {
-            if (game.map[i][j] == 'E')
+            if (game->map[i][j] == 'E')
                 count_exit++;
             j++;
         }

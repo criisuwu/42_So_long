@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 16:21:44 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/07 23:03:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,19 @@ typedef struct game
 
 void	ft_err(int option);
 void	ft_err_arg(void);
-void	map_is_valid(t_map game);
-void	map_checking(t_map game);
+void	map_is_valid(t_map *game);
+void	map_checking(t_map *game);
 void	move_player(t_map *game, int new_x, int new_y);
-void	has_one_player(t_map game);
-void	has_one_exit(t_map game);
+void	has_one_player(t_map *game);
+void	has_one_exit(t_map *game);
 void	has_collect(t_map *game);
-void	put_wall(t_map game);
-void	put_floor(t_map game);
-void	put_exit(t_map game);
-void	put_player(t_map game);
-void	put_coin(t_map game);
-void	drawmap(t_map game);
+void	put_wall(t_map *game);
+void	put_floor(t_map *game);
+void	put_exit(t_map *game);
+void	put_player(t_map *game);
+void	put_coin(t_map *game);
+void	drawmap(t_map *game);
+void	clean_wind(t_map *game);
 void	init_player_position(t_map *game);
 int		get_map_height(t_map game);
 int		get_map_width(t_map game);

@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 18:01:23 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/07 20:28:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_checking(t_map game)
+void	map_checking(t_map *game)
 {
 	map_is_valid(game);
 	has_one_player(game);
 	has_one_exit(game);
-	has_collect(&game);
+	has_collect(game);
 }
 
-void	drawmap(t_map game)
+void	drawmap(t_map *game)
 {
 	put_wall(game);
 	put_floor(game);
@@ -39,12 +39,11 @@ int	main(int argc, char **argv)
 	game.map = read_map(argv, game);
 	game.map_w = get_map_width(game);
 	game.map_h = get_map_height(game);
-	map_checking(game);
-	printf("CCCCCCCCCCCcoins: %d\n", game.coin);
+	map_checking(&game);
 	game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56,
 			game.map_h * 56, "So_Long");
 	init_player_position(&game);
-	drawmap(game);
+	drawmap(&game);
 	mlx_key_hook(game.mlx_wind, key_hook, &game);
 	mlx_loop(game.mlx);
 	return (0);
