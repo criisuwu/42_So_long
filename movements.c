@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/05 21:58:29 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/07 16:15:01 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	init_player_position(t_map *game)
 	int	x;
 
 	y = 0;
-	while (y < (int)game->map_h)
+	while (game->map[y])
 	{
 		x = 0;
-		while (x < (int)game->map_w)
+		while (game->map[y][x])
 		{
 			if (game->map[y][x] == 'P')
 			{
@@ -64,62 +64,12 @@ void move_player(t_map *game, int new_x, int new_y)
 			game->collected_coin++;
         if(game->map[new_y][new_x] == 'C' || game->map[new_y][new_x] == '0')
         {
-            game->map[game->player_x][game->player_y] = '0';
+            game->map[game->player_y][game->player_x] = '0';
             game->player_x = new_x;
             game->player_y = new_y;
             game->map[new_y][new_x] = 'P';
             game->mvs++;
-            redraw_map(game);
+            drawmap(*game);
         }
     }
 }
-
-void redraw_map(t_map *game)
-{
-    int i;
-    int j;
-
-    i = 0;
-/*  if (mlx_clear_window(game->mlx, game->mlx_wind) == 0)
-    {
-        ft_putendl_fd("Error: Failed to clear window", 2);
-        exit(EXIT_FAILURE);
-    }*/
-    while(i < (int)game->map_h)
-    {
-        j = 0;
-        while(j < (int)game->map_w)
-        {
-            put_floor(*game);
-            put_coin(*game);
-            put_player(*game);
-            put_exit(*game);
-            put_wall(*game);
-            j++;
-        }
-        i++;
-    }
-}
-
-/*void redraw_map(t_map *game)
-{
-    int i;
-    int j;
-
-    i = 0;
-    mlx_clear_window(game->mlx, game->mlx_wind);
-    while(i < (int)game->map_h)
-    {
-        j = 0;
-        while(j < (int)game->map_w)
-        {
-            put_coin(*game);
-            put_exit(*game);
-            put_floor(*game);
-            put_player(*game);
-            put_wall(*game);
-            j++;
-        }
-        i++;
-    }
-}*/

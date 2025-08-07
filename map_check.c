@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/05 20:26:16 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/07 16:01:53 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,15 @@ void has_one_player(t_map game)
 
     count_p = 0;
     i = 1;
-    j = 0;
     while (game.map[i])
     {
+        j = 0;
         while(game.map[i][j])
         {
             if(game.map[i][j] == 'P')
                 count_p++;
             j++;
         }
-        j = 0;
         i++;
     }
     if(count_p != 1)
@@ -74,43 +73,44 @@ void has_one_exit(t_map game)
 
     count_exit = 0;
     i = 1;
-    j = 0;
     while (game.map[i])
     {
+        j = 0;
         while(game.map[i][j])
         {
             if (game.map[i][j] == 'E')
                 count_exit++;
             j++;
         }
-        j = 0;
         i++;
     }
     if (count_exit != 1)
         ft_err(4);
 }
 
-void has_collect(t_map game)
+void has_collect(t_map *game)
 {
     int i;
     int j;
+    int coin;
 
-    game.coin = 0;
+    coin = 0;
     i = 1;
-    j = 0;
-    while (game.map[i])
+    while (game->map[i])
     {
-        while(game.map[i][j])
+        j = 0;
+        while(game->map[i][j])
         {
-            if (game.map[i][j] == 'C')
-                game.coin++;
+            if (game->map[i][j] == 'C')
+                coin++;
             j++;
         }
-        j = 0;
         i++;
     }
-    if (game.coin < 1)
+    if (coin < 1)
         ft_err(4);
+    game->coin = coin;
+
 }
 
 // void floodfill(t_map game)
