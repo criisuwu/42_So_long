@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 23:03:43 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/11 17:04:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct game
 
 void	ft_err(int option);
 void	ft_err_arg(void);
+void	floodfill(t_map *game, int x, int y);
 void	map_is_valid(t_map *game);
 void	map_checking(t_map *game);
 void	move_player(t_map *game, int new_x, int new_y);
@@ -78,6 +79,7 @@ void	put_player(t_map *game);
 void	put_coin(t_map *game);
 void	drawmap(t_map *game);
 void	clean_wind(t_map *game);
+void	end_clean(t_map *game);
 void	init_player_position(t_map *game);
 int		get_map_height(t_map game);
 int		get_map_width(t_map game);

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 20:10:08 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/07 23:25:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void move_player(t_map *game, int new_x, int new_y)
             game->player_y = new_y;
             game->map[new_y][new_x] = 'P';
             game->mvs++;
-            drawmap(*game);
+            drawmap(game);
         }
     }
 }

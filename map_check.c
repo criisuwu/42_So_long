@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 20:20:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/11 17:37:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,20 @@ void has_collect(t_map *game)
     if (coin < 1)
         ft_err(4);
     game->coin = coin;
+}
+
+void	floodfill(t_map *game, int x, int y)
+{
+	if (game->map[x][y] != '1' && 
+            game->map[x][y] != '.' && game->map[x][y] != ',')
+	{
+		if (game->map[x][y] == 'E')
+			game->map[x][y] = ',';
+		else
+			game->map[x][y] = '.';
+		floodfill(game, x - 1, y);
+		floodfill(game, x + 1, y);
+		floodfill(game, x, y + 1);
+		floodfill(game, x, y - 1);
+	}
 }
