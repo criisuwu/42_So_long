@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:49:10 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 15:53:36 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:39:06 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void put_exit(t_map *game)
         j = 0;
         while(game->map[i][j])
         {
-            if (game->map[i][j] == 'E' || game->map[i][j] == 'P')
+            if (game->map[i][j] == 'E')
                 mlx_put_image_to_window(game->mlx, game->mlx_wind, game->exit_img,
                     j * 56, i * 56);
             j++;

@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 15:39:57 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:57:45 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ void	map_checking(t_map *game)
 	has_one_player(game);
 	has_one_exit(game);
 	has_collect(game);
-	//is_playable(game,game->player_x, game->player_y);
-	floodfill(game, game->player_x, game->player_y);
 	check_map(game);
 }
 
 void	drawmap(t_map *game)
 {
-	put_wall(game);
 	put_floor(game);
+	put_wall(game);
 	put_exit(game);
 	put_player(game);
 	put_coin(game);
@@ -42,10 +40,11 @@ int	main(int argc, char **argv)
 	game.map = read_map(argv, game);
 	game.map_w = get_map_width(game);
 	game.map_h = get_map_height(game);
+	init_player_position(&game);
 	map_checking(&game);
+	undo_transformation(&game);
 	game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56,
 			game.map_h * 56, "So_Long");
-	init_player_position(&game);
 	drawmap(&game);
 	mlx_key_hook(game.mlx_wind, key_hook, &game);
 	mlx_loop(game.mlx);

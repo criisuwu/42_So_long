@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 15:57:23 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:46:05 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,28 +112,30 @@ void has_collect(t_map *game)
     game->coin = coin;
 }
 
-void	floodfill(t_map *game, int x, int y)
+void	floodfill(t_map *game, int y, int x)
 {
-	if (game->map[x][y] != '1' && 
-            game->map[x][y] != '.' && game->map[x][y] != ',')
-	{
-		if (game->map[x][y] == 'E')
+    if (game->map[y][x] != '1' && 
+        game->map[y][x] != '.' && game->map[y][x] != ',')
         {
-			game->map[x][y] = ',';
+		if (game->map[y][x] == 'E')
+        {
+			game->map[y][x] = ',';
             game->exit_reachable = 1;
         }
-		else if (game->map[x][y] == 'C')
+		else if (game->map[y][x] == 'C')
         {
-            game->map[x][y] = '.';
+            game->map[y][x] = 'c';
             game->collected_coin_c++;
         }
-        else if (game->map[x][y] == '0' || game->map[x][y] == 'P')
+        else if(game->map[y][x] == 'P')
+            game->map[y][x] = 'p';
+        else if (game->map[y][x] == '0')
         {
-            game->map[x][y] = '.';
+            game->map[y][x] = '.';
         }
-	    floodfill(game, x - 1, y);
-	    floodfill(game, x + 1, y);
-	    floodfill(game, x, y + 1);
-	    floodfill(game, x, y - 1);
+	    floodfill(game, y - 1, x);
+	    floodfill(game, y + 1, x);
+	    floodfill(game, y, x + 1);
+	    floodfill(game, y, x - 1);
 	}
 }
