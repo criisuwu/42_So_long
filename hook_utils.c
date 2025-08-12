@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:27:25 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 15:03:25 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/12 17:05:00 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,11 @@ void clean_wind(t_map *game)
     game->coin_img = NULL;
     if (game->mlx_wind)
         mlx_destroy_window(game->mlx, game->mlx_wind);
+}
+
+int close_window(t_map *game)
+{
+    clean_wind(game);
+    exit(0);
+    return (0);
 }

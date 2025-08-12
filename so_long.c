@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 16:57:45 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/12 17:04:27 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 	game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56,
 			game.map_h * 56, "So_Long");
 	drawmap(&game);
+	mlx_hook(game.mlx_wind, 17, 0, close_window, &game);
 	mlx_key_hook(game.mlx_wind, key_hook, &game);
 	mlx_loop(game.mlx);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 16:43:37 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/12 17:05:21 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	end_clean(t_map *game);
 void	init_player_position(t_map *game);
 void	is_playable(t_map *game,int x, int y);
 void	undo_transformation(t_map *game);
+int		close_window(t_map *game);
 int		get_map_height(t_map game);
 int		get_map_width(t_map game);
 int		key_hook(int keycode, t_map *game);
