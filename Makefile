@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 13:51:49 by chomobon          #+#    #+#              #
-#    Updated: 2025/08/11 16:23:01 by marvin           ###   ########.fr        #
+#    Updated: 2025/08/12 15:23:40 by chomobon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 SRCS = so_long.c so_long_utils.c map_check.c hook_utils.c put_sprites.c\
-		ft_err.c movements.c
+		ft_err.c movements.c map_check_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,7 +23,7 @@ MINI = minilibx-linux
 MINI_LIB = minilibx-linux/libmlx.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 RM = rm -f
 
 all: $(NAME)

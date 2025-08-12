@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/11 17:04:01 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/12 15:39:22 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct game
 {
 	int		coin;
 	int		collected_coin;
+	int		collected_coin_c;
 	int		exit;
 	int		mvs;
 	int		n_players;
@@ -51,7 +52,9 @@ typedef struct game
 	int		player_h;
 	int		coin_w;
 	int		coin_h;
+	int		exit_reachable;
 	char	**map;
+	void	*img_ptr;
 	void	*player_img;
 	void	*exit_img;
 	void	*coin_img;
@@ -81,10 +84,12 @@ void	drawmap(t_map *game);
 void	clean_wind(t_map *game);
 void	end_clean(t_map *game);
 void	init_player_position(t_map *game);
+void	is_playable(t_map *game,int x, int y);
 int		get_map_height(t_map game);
 int		get_map_width(t_map game);
 int		key_hook(int keycode, t_map *game);
 int		not_wall(t_map *game, int x, int y);
 char	**read_map(char **argv, t_map game);
+void check_map(t_map *game);
 
 #endif

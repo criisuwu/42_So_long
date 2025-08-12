@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/11 17:04:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/12 15:39:57 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	map_checking(t_map *game)
 	has_one_player(game);
 	has_one_exit(game);
 	has_collect(game);
+	//is_playable(game,game->player_x, game->player_y);
 	floodfill(game, game->player_x, game->player_y);
+	check_map(game);
 }
 
 void	drawmap(t_map *game)

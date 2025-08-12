@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/11 17:37:04 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/12 15:57:23 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,22 @@ void	floodfill(t_map *game, int x, int y)
             game->map[x][y] != '.' && game->map[x][y] != ',')
 	{
 		if (game->map[x][y] == 'E')
+        {
 			game->map[x][y] = ',';
-		else
-			game->map[x][y] = '.';
-		floodfill(game, x - 1, y);
-		floodfill(game, x + 1, y);
-		floodfill(game, x, y + 1);
-		floodfill(game, x, y - 1);
+            game->exit_reachable = 1;
+        }
+		else if (game->map[x][y] == 'C')
+        {
+            game->map[x][y] = '.';
+            game->collected_coin_c++;
+        }
+        else if (game->map[x][y] == '0' || game->map[x][y] == 'P')
+        {
+            game->map[x][y] = '.';
+        }
+	    floodfill(game, x - 1, y);
+	    floodfill(game, x + 1, y);
+	    floodfill(game, x, y + 1);
+	    floodfill(game, x, y - 1);
 	}
 }

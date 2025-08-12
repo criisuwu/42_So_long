@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 23:25:34 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/12 14:55:35 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void move_player(t_map *game, int new_x, int new_y)
 		&& (game->collected_coin == game->coin))
 		{
 			printf("¡Has salido! Movimientos totales: %d\n", game->mvs); //Tengo que meter el ft_printf
+			clean_wind(game);
 			exit(0);
 		}
         if (game->map[new_y][new_x] == 'C')

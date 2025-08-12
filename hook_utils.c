@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:27:25 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/07 23:24:41 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/12 15:03:25 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@ int key_hook(int keycode, t_map *game)
         exit(0);
     else if (keycode == W)
     {
-        clean_wind(game);
+        //clean_wind(game);
         move_player(game, game->player_x, game->player_y - 1);
     }
     else if (keycode == S)
     {
+        //clean_wind(game);
         move_player(game, game->player_x, game->player_y + 1);
-        clean_wind(game);
     }
     else if (keycode == A)
     {
+        //clean_wind(game);
         move_player(game, game->player_x - 1, game->player_y);
-        clean_wind(game);
     }
     else if (keycode == D)
     {
+        //clean_wind(game);
         move_player(game, game->player_x + 1, game->player_y);
-        clean_wind(game);
     }
     return(0);
 }
@@ -51,4 +51,11 @@ void clean_wind(t_map *game)
         mlx_destroy_image(game->mlx, game->exit_img);
     if (game->coin_img)
         mlx_destroy_image(game->mlx, game->coin_img);
+    game->wall_img = NULL;
+    game->floor = NULL;
+    game->player_img = NULL;
+    game->exit_img = NULL;
+    game->coin_img = NULL;
+    if (game->mlx_wind)
+        mlx_destroy_window(game->mlx, game->mlx_wind);
 }
