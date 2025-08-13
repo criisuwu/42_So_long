@@ -14,16 +14,25 @@
 
 void keep_exit(t_map *game, int x, int y)
 {
-	game->map[game->exit_y][game->exit_x] = 'E';
-    game->exit_x = x;
-    game->exit_y = y;
+    int old_x;
+    int old_y;
+    old_x = game->player_x;
+    old_y = game->player_y;
+    game->map[old_y][old_x] = '0';
+    game->player_x = x;
+    game->player_y = y;
     game->map[y][x] = 'P';
+    printf("x: %d\n", x);
+    printf("y: %d\n", y);
     drawmap(game);
 }
 
 void change_player_pos(t_map *game, int x, int y)
 {
-    game->map[game->player_y][game->player_x] = '0';
+    if ((game->player_y == game->exit_y) && (game->player_x == game->exit_x))
+        game->map[game->player_y][game->player_x] = 'E';
+    else
+        game->map[game->player_y][game->player_x] = '0';
     game->player_x = x;
     game->player_y = y;
     game->map[y][x] = 'P';

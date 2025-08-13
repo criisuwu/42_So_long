@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/13 22:54:10 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/13 23:11:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ int	main(int argc, char **argv)
 	game.map_w = get_map_width(game);
 	game.map_h = get_map_height(game);
 	init_player_position(&game);
-	init_exit(&game);	
-	printf("x: %d\n", game.exit_x);
-	printf("y: %d\n", game.exit_y);
+	init_exit(&game);
 	map_checking(&game);
 	undo_transformation(&game);
 	game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56,
