@@ -22,8 +22,6 @@ void keep_exit(t_map *game, int x, int y)
     game->player_x = x;
     game->player_y = y;
     game->map[y][x] = 'P';
-    printf("x: %d\n", x);
-    printf("y: %d\n", y);
     drawmap(game);
 }
 
