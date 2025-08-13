@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 17:21:03 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/13 22:53:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,31 @@ int not_wall(t_map *game, int x, int y)
     return(0);
 }
 
+void init_exit(t_map *game)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'E')
+			{
+				game->exit_x = x;
+				game->exit_y = y;
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
+	perror("Error: No se encontró la posición inicial de la salida.\n");
+	exit(1);
+}
+
 void move_player(t_map *game, int new_x, int new_y)
 {
     int tile;
@@ -64,13 +89,8 @@ void move_player(t_map *game, int new_x, int new_y)
         if (game->map[new_y][new_x] == 'C')
 			game->collected_coin++;
         if(game->map[new_y][new_x] == 'C' || game->map[new_y][new_x] == '0')
-        {
-            game->map[game->player_y][game->player_x] = '0';
-            game->player_x = new_x;
-            game->player_y = new_y;
-            game->map[new_y][new_x] = 'P';
-            game->mvs++;
-            drawmap(game);
-        }
+            change_player_pos(game, new_x, new_y);
+		if (game->map[new_y][new_x] == 'E')
+			keep_exit(game, new_x, new_y);
     }
 }

@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 13:51:49 by chomobon          #+#    #+#              #
-#    Updated: 2025/08/12 15:23:40 by chomobon         ###   ########.fr        #
+#    Updated: 2025/08/13 22:46:00 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 SRCS = so_long.c so_long_utils.c map_check.c hook_utils.c put_sprites.c\
-		ft_err.c movements.c map_check_utils.c
+		ft_err.c movements.c map_check_utils.c movements_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

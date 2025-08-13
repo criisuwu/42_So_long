@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 17:05:21 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/13 22:52:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,17 @@ void	drawmap(t_map *game);
 void	clean_wind(t_map *game);
 void	end_clean(t_map *game);
 void	init_player_position(t_map *game);
+void init_exit(t_map *game);
 void	is_playable(t_map *game,int x, int y);
 void	undo_transformation(t_map *game);
+void keep_exit(t_map *game, int x, int y);
+void change_player_pos(t_map *game, int x, int y);
+void check_map(t_map *game);
 int		close_window(t_map *game);
 int		get_map_height(t_map game);
 int		get_map_width(t_map game);
 int		key_hook(int keycode, t_map *game);
 int		not_wall(t_map *game, int x, int y);
 char	**read_map(char **argv, t_map game);
-void check_map(t_map *game);
 
 #endif
