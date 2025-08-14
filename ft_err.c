@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 14:13:37 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 20:13:20 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:06:47 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ft_err(int option, t_map *game)
 		ft_putendl_fd("CAN'T REACH EXIT", 2);
 	else if (option == 6)
 		ft_putendl_fd("WRONG EXTENSION", 2);
+	else if (option == 7)
+		ft_putendl_fd("WRONG MAP", 2);
 	exit(EXIT_FAILURE);
 }
 
