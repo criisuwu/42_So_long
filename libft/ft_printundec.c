@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:19:27 by chomobon          #+#    #+#             */
-/*   Updated: 2024/02/14 15:58:25 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:53:15 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_printundec(unsigned int n, int c)
 	else
 		c = 0;
 	ind = "0123456789";
-	base = ft_strlen(ind);
+	base = ft_strlenprintf(ind);
 	if (n >= base)
 	{
 		c += ft_printundec(n / base, c);

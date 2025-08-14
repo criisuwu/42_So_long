@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 17:41:49 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:46:59 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	move_player(t_map *game, int new_x, int new_y)
 		if (game->map[new_y][new_x] == 'E'
 		&& (game->collected_coin == game->coin))
 		{
-			printf("¡Has salido! Movimientos totales: %d\n", game->mvs); //Tengo que meter el ft_printf
+			ft_printf("You won! Total movements: %d\n", game->mvs);
 			free_game_resources(game);
 			exit(0);
 		}

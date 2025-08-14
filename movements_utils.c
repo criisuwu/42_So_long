@@ -35,5 +35,6 @@ void change_player_pos(t_map *game, int x, int y)
     game->player_y = y;
     game->map[y][x] = 'P';
     game->mvs++;
+    ft_printf("Total movements: %d\n", game->mvs);
     drawmap(game);
 }

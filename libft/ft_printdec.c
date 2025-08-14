@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:13:02 by chomobon          #+#    #+#             */
-/*   Updated: 2024/02/12 18:17:11 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:52:44 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_write(int *c)
 	return (*c);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlenprintf(char *str)
 {
 	int	x;
 
@@ -47,14 +47,14 @@ int	ft_printdec(int n, int c)
 			return (-1);
 		c += ft_printdec(-n, c);
 	}
-	else if (n >= ft_strlen(ind))
+	else if (n >= ft_strlenprintf(ind))
 	{
-		c += ft_printdec(n / ft_strlen(ind), c);
+		c += ft_printdec(n / ft_strlenprintf(ind), c);
 		if (c == -1)
 			return (-1);
-		c += ft_printdec(n % ft_strlen(ind), c);
+		c += ft_printdec(n % ft_strlenprintf(ind), c);
 	}
-	else if (n < ft_strlen(ind))
+	else if (n < ft_strlenprintf(ind))
 		c += ft_printcharacter(ind[n]);
 	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 17:29:13 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:57:00 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include <stdio.h>
 # include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
-# include "printf.h"
 # include "libft/get_next_line.h"
+# include "libft/ft_printf.h"
 
 typedef struct s_game
 {

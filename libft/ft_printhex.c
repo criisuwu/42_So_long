@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:05:44 by chomobon          #+#    #+#             */
-/*   Updated: 2024/02/12 18:18:20 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:53:00 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_printhex(unsigned int n, int c)
 	else
 		c = 0;
 	ind = "0123456789ABCDEF";
-	base = ft_strlen(ind);
+	base = ft_strlenprintf(ind);
 	if (n >= base)
 	{
 		c += ft_printhex(n / base, c);
