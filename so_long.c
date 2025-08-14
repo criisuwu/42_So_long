@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 19:08:29 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:31:55 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void	drawmap(t_map *game)
 	put_coin(game);
 }
 
+void check_extension(char *ext)
+{
+	if ((ft_strncmp(ext + ft_strlen(ext) - 4, ".ber", 4)))
+		exit(1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_map	game;
@@ -37,6 +43,7 @@ int	main(int argc, char **argv)
 	ft_bzero(&game, sizeof(t_map));
 	if (argc != 2)
 		ft_err_arg();
+	check_extension(argv[1]);
 	game.mlx = mlx_init();
 	game.map = read_map(argv, &game);
 	game.map_w = get_map_width(&game);
