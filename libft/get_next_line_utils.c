@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 11:17:11 by chomobon          #+#    #+#             */
-/*   Updated: 2025/07/14 13:53:25 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:40:15 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ char	*ft_strjoin_gnl(char *first_str, char *buf)
 			return (NULL);
 		first_str[0] = '\0';
 	}
-	str = malloc(sizeof(char) * ((ft_strlen_gnl(first_str) + ft_strlen_gnl(buf)) + 2));
+	str = malloc(sizeof(char) * ((ft_strlen_gnl(first_str)
+					+ ft_strlen_gnl(buf)) + 2));
 	if (!str)
 		return (free(first_str), NULL);
 	i = -1;
