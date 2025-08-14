@@ -12,29 +12,30 @@
 
 #include "so_long.h"
 
-void keep_exit(t_map *game, int x, int y)
+void	keep_exit(t_map *game, int x, int y)
 {
-    int old_x;
-    int old_y;
-    old_x = game->player_x;
-    old_y = game->player_y;
-    game->map[old_y][old_x] = '0';
-    game->player_x = x;
-    game->player_y = y;
-    game->map[y][x] = 'P';
-    drawmap(game);
+	int	old_x;
+	int	old_y;
+
+	old_x = game->player_x;
+	old_y = game->player_y;
+	game->map[old_y][old_x] = '0';
+	game->player_x = x;
+	game->player_y = y;
+	game->map[y][x] = 'P';
+	drawmap(game);
 }
 
-void change_player_pos(t_map *game, int x, int y)
+void	change_player_pos(t_map *game, int x, int y)
 {
-    if ((game->player_y == game->exit_y) && (game->player_x == game->exit_x))
-        game->map[game->player_y][game->player_x] = 'E';
-    else
-        game->map[game->player_y][game->player_x] = '0';
-    game->player_x = x;
-    game->player_y = y;
-    game->map[y][x] = 'P';
-    game->mvs++;
-    ft_printf("Total movements: %d\n", game->mvs);
-    drawmap(game);
+	if ((game->player_y == game->exit_y) && (game->player_x == game->exit_x))
+		game->map[game->player_y][game->player_x] = 'E';
+	else
+		game->map[game->player_y][game->player_x] = '0';
+	game->player_x = x;
+	game->player_y = y;
+	game->map[y][x] = 'P';
+	game->mvs++;
+	ft_printf("Total movements: %d\n", game->mvs);
+	drawmap(game);
 }
