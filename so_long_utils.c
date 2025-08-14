@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:10:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 21:09:23 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:17:37 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ char	*read_map_recursive(int fd, char *str, t_map *game)
 
 	line = get_next_line(fd);
 	if (!line)
-	{
-		free(str);
-		ft_err(7, game);
-	}
+		return (str);
 	temp = ft_strjoin(str, line);
 	free(line);
 	free(str);
