@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:27:25 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/13 22:38:30 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/14 17:17:01 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int key_hook(int keycode, t_map *game)
 {
+
     if(keycode == ESC)
+    {
+    	free_game_resources(game);
         exit(0);
+    }
     else if (keycode == W)
     {
         //clean_wind(game);
@@ -39,30 +43,9 @@ int key_hook(int keycode, t_map *game)
     return(0);
 }
 
-void clean_wind(t_map *game)
-{
-    if (game->wall_img)
-        mlx_destroy_image(game->mlx, game->wall_img);
-    if (game->floor)
-        mlx_destroy_image(game->mlx, game->floor);
-    if (game->player_img)
-        mlx_destroy_image(game->mlx, game->player_img);
-    if (game->exit_img)
-        mlx_destroy_image(game->mlx, game->exit_img);
-    if (game->coin_img)
-        mlx_destroy_image(game->mlx, game->coin_img);
-    game->wall_img = NULL;
-    game->floor = NULL;
-    game->player_img = NULL;
-    game->exit_img = NULL;
-    game->coin_img = NULL;
-    if (game->mlx_wind)
-        mlx_destroy_window(game->mlx, game->mlx_wind);
-}
 
 int close_window(t_map *game)
 {
-    clean_wind(game);
-    exit(0);
-    return (0);
+    free_game_resources(game);
+    exit(0);    
 }

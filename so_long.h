@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/13 22:52:26 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/14 17:29:13 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # include "printf.h"
 # include "libft/get_next_line.h"
 
-typedef struct game
+typedef struct s_game
 {
 	int		coin;
 	int		collected_coin;
@@ -66,8 +66,10 @@ typedef struct game
 	size_t	map_h;
 }	t_map;
 
-void	ft_err(int option);
+void	ft_err(int option, t_map *game);
 void	ft_err_arg(void);
+void	free_game_resources(t_map *game);
+void	free_map(t_map *game);
 void	floodfill(t_map *game, int x, int y);
 void	map_is_valid(t_map *game);
 void	map_checking(t_map *game);
@@ -81,20 +83,21 @@ void	put_exit(t_map *game);
 void	put_player(t_map *game);
 void	put_coin(t_map *game);
 void	drawmap(t_map *game);
+void	destroy(t_map *game);
 void	clean_wind(t_map *game);
 void	end_clean(t_map *game);
 void	init_player_position(t_map *game);
-void init_exit(t_map *game);
-void	is_playable(t_map *game,int x, int y);
+void	init_exit(t_map *game);
+void	is_playable(t_map *game, int x, int y);
 void	undo_transformation(t_map *game);
-void keep_exit(t_map *game, int x, int y);
-void change_player_pos(t_map *game, int x, int y);
-void check_map(t_map *game);
+void	keep_exit(t_map *game, int x, int y);
+void	change_player_pos(t_map *game, int x, int y);
+void	check_map(t_map *game);
 int		close_window(t_map *game);
-int		get_map_height(t_map game);
-int		get_map_width(t_map game);
+int		get_map_height(t_map *game);
+int		get_map_width(t_map *game);
 int		key_hook(int keycode, t_map *game);
 int		not_wall(t_map *game, int x, int y);
-char	**read_map(char **argv, t_map game);
+char	**read_map(char **argv, t_map *game);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/13 23:11:11 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/14 17:29:34 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ int	main(int argc, char **argv)
 {
 	t_map	game;
 
+	ft_bzero(&game, sizeof(t_map));
 	if (argc != 2)
 		ft_err_arg();
 	game.mlx = mlx_init();
-	game.map = read_map(argv, game);
-	game.map_w = get_map_width(game);
-	game.map_h = get_map_height(game);
+	game.map = read_map(argv, &game);
+	game.map_w = get_map_width(&game);
+	game.map_h = get_map_height(&game);
 	init_player_position(&game);
 	init_exit(&game);
 	map_checking(&game);
@@ -47,9 +48,8 @@ int	main(int argc, char **argv)
 	game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56,
 			game.map_h * 56, "So_Long");
 	drawmap(&game);
-	mlx_hook(game.mlx_wind, 17, 0, close_window, &game);
 	mlx_key_hook(game.mlx_wind, key_hook, &game);
+	mlx_hook(game.mlx_wind, 17, 0, close_window, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }
-

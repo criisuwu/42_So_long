@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 15:15:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/12 16:47:41 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 17:02:29 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void check_map(t_map *game)
 {
     game->exit_reachable = 0;
     game->collected_coin_c = 0;
+    game->collected_coin = 0;
     floodfill(game, game->player_y, game->player_x);
     if (!game->exit_reachable || game->collected_coin_c != game->coin)
-        ft_err(5);
+        ft_err(5, game);
 }
 void undo_transformation(t_map *game)
 {
