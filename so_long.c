@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:27:21 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 17:29:34 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:08:29 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, char **argv)
 	init_player_position(&game);
 	init_exit(&game);
 	map_checking(&game);
+
 	undo_transformation(&game);
 	game.mlx_wind = mlx_new_window(game.mlx, game.map_w * 56,
 			game.map_h * 56, "So_Long");

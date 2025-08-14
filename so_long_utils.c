@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:10:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 17:32:01 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 18:09:05 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ char	**read_map(char **argv, t_map *game)
 		free(str);
 		ft_err(2, game);
 	}
-	line_map = get_next_line(fd);
-	while (line_map != NULL)
+	while ((line_map = get_next_line(fd)) != NULL)
 	{
 		temp = ft_strjoin(str, line_map);
 		free(line_map);
