@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:17:44 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 19:57:00 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:26:54 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	undo_transformation(t_map *game);
 void	keep_exit(t_map *game, int x, int y);
 void	change_player_pos(t_map *game, int x, int y);
 void	check_map(t_map *game);
+void	check_vertical_borders(t_map *game, int i);
 int		close_window(t_map *game);
 int		get_map_height(t_map *game);
 int		get_map_width(t_map *game);

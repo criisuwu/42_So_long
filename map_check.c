@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 20:09:25 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:29:33 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,7 @@ void	map_is_valid(t_map *game)
 	int	i;
 
 	i = 0;
-	while (game->map[i])
-	{
-		if (game->map[i][0] != '1' || game->map[i][game->map_w - 1] != '1')
-			ft_err(3, game);
-		else
-			i++;
-	}
-	i = 0;
+	check_vertical_borders(game, i);
 	while (game->map[0][i])
 	{
 		if (game->map[0][i] == '1')

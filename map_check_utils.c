@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 15:15:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 20:10:20 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:29:09 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,13 @@ void	undo_transformation(t_map *game)
 		}
 		i++;
 	}
+}
+
+void	check_vertical_borders(t_map *game, int i)
+{
+	if (!game->map[i])
+		return ;
+	if (game->map[i][0] != '1' || game->map[i][game->map_w - 1] != '1')
+		ft_err(3, game);
+	check_vertical_borders(game, i + 1);
 }
