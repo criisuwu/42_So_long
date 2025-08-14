@@ -6,15 +6,15 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 14:48:32 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 19:11:35 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:09:25 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void map_is_valid(t_map *game)
+void	map_is_valid(t_map *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (game->map[i])
@@ -42,11 +42,11 @@ void map_is_valid(t_map *game)
 	}
 }
 
-void has_one_player(t_map *game)
+void	has_one_player(t_map *game)
 {
-	int count_p;
-	int i;
-	int j;
+	int	count_p;
+	int	i;
+	int	j;
 
 	count_p = 0;
 	i = 1;
@@ -65,11 +65,11 @@ void has_one_player(t_map *game)
 		ft_err(4, game);
 }
 
-void has_one_exit(t_map *game)
+void	has_one_exit(t_map *game)
 {
-	int count_exit;
-	int i;
-	int j;
+	int	count_exit;
+	int	i;
+	int	j;
 
 	count_exit = 0;
 	i = 1;
@@ -88,11 +88,11 @@ void has_one_exit(t_map *game)
 		ft_err(4, game);
 }
 
-void has_collect(t_map *game)
+void	has_collect(t_map *game)
 {
-	int i;
-	int j;
-	int coin;
+	int	i;
+	int	j;
+	int	coin;
 
 	coin = 0;
 	i = 1;
@@ -112,9 +112,11 @@ void has_collect(t_map *game)
 	game->coin = coin;
 }
 
-void floodfill(t_map *game, int y, int x)
+void	floodfill(t_map *game, int y, int x)
 {
-	if (game->map[y][x] != '1' && game->map[y][x] != '.' && game->map[y][x] != ',' && game->map[y][x] != 'c' && game->map[y][x] != 'p')
+	if (game->map[y][x] != '1' && game->map[y][x] != '.'
+		&& game->map[y][x] != ',' && game->map[y][x] != 'c'
+		&& game->map[y][x] != 'p')
 	{
 		if (game->map[y][x] == 'E')
 		{
