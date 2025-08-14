@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 16:55:13 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 19:46:59 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:47:19 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ void	init_player_position(t_map *game)
 		}
 		y++;
 	}
-	perror("Error: No se encontró la posición inicial del jugador.\n");
-	exit(1);
+	ft_err(4, game);
 }
 
 int	not_wall(t_map *game, int x, int y)
@@ -70,8 +69,7 @@ void	init_exit(t_map *game)
 		}
 		y++;
 	}
-	perror("Error: No se encontró la posición inicial de la salida.\n");
-	exit(1);
+	ft_err(4, game);
 }
 
 void	move_player(t_map *game, int new_x, int new_y)
