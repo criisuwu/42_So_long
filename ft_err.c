@@ -6,34 +6,34 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 14:13:37 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 19:34:40 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:13:20 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_err_arg()
+void	ft_err_arg(void)
 {
-    ft_putendl_fd("ARG ERROR", 2);
-    exit(EXIT_FAILURE);
+	ft_putendl_fd("ARG ERROR", 2);
+	exit(EXIT_FAILURE);
 }
 
-void ft_err(int option, t_map *game)
+void	ft_err(int option, t_map *game)
 {
-    free_game_resources(game);
-    if (option == 1)
-        ft_putendl_fd("CAN'T READ MAP ERROR", 2);
-    else if(option == 2)
-        ft_putendl_fd("OPEN FILE ERROR", 2);
-    else if(option == 3)
-        ft_putendl_fd("MAP ERROR", 2);
-    else if(option == 4)
-        ft_putendl_fd("OBJECTS ERROR", 2);
-    else if(option == 5)
-        ft_putendl_fd("CAN'T REACH EXIT", 2);
-	else if(option == 6)
-        ft_putendl_fd("WRONG EXTENSION", 2);
-    exit(EXIT_FAILURE);
+	free_game_resources(game);
+	if (option == 1)
+		ft_putendl_fd("CAN'T READ MAP ERROR", 2);
+	else if (option == 2)
+		ft_putendl_fd("OPEN FILE ERROR", 2);
+	else if (option == 3)
+		ft_putendl_fd("MAP ERROR", 2);
+	else if (option == 4)
+		ft_putendl_fd("OBJECTS ERROR", 2);
+	else if (option == 5)
+		ft_putendl_fd("CAN'T REACH EXIT", 2);
+	else if (option == 6)
+		ft_putendl_fd("WRONG EXTENSION", 2);
+	exit(EXIT_FAILURE);
 }
 
 void	free_game_resources(t_map *game)
