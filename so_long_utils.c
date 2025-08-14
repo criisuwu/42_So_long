@@ -6,7 +6,7 @@
 /*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:10:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 18:09:05 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/14 19:22:26 by chomobon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	free_map(t_map *game)
 	int	i;
 
 	i = 0;
+	if (!game->map)
+		return ;
 	while (game->map[i])
 	{
 		free (game->map[i]);
