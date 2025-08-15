@@ -19,7 +19,7 @@ void	ft_err_arg(void)
 }
 
 void	ft_err(int option, t_map *game)
-{
+{	
 	free_game_resources(game);
 	if (option == 1)
 		ft_putendl_fd("CAN'T READ MAP ERROR", 2);

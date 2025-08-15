@@ -32,51 +32,31 @@ int	get_map_height(t_map *game)
 
 char	**read_map(char **argv, t_map *game)
 {
-	int		fd;
+	char	*line_map;
 	char	*str;
+	char	*temp;
+	int		fd;
 
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		ft_err(2, game);
 	str = ft_strdup("");
 	if (!str)
-	{
-		close(fd);
 		ft_err(1, game);
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+		(free(str), ft_err(2, game));
+	while (1)
+	{
+		line_map = get_next_line(fd);
+		if (!line_map)
+			break ;
+		temp = ft_strjoin(str, line_map);
+		free(line_map);
+		if (!str)		
+			(close(fd), ft_err(1, game));		
+		free(str);
+		str = temp;
 	}
-	str = read_map_recursive(fd, str, game);
-	close(fd);
-	game->map = ft_split(str, '\n');
-	has_new_line(game->map, game);
-	free(str);
-	if (!game->map[0])
-		ft_err(1, game);
-	return (game->map);
-}
-
-char	*read_map_recursive(int fd, char *str, t_map *game)
-{
-	char	*line;
-	char	*temp;
-
-	line = get_next_line(fd);
-	if (!line)
-		return (str);
-	if (line[0] == '\n' && line[1] == '\0')
-	{
-        free(line);
-        free(str);
-        ft_err(3, game);
-    }
-	temp = ft_strjoin(str, line);
-	free(line);
-	free(str);
-	if (!temp)
-	{
-		close(fd);
-		ft_err(1, game);
-	}
-	return (read_map_recursive(fd, temp, game));
+	(close(fd), check_line(str, game, line_map));
+	return (free(str), game->map);
 }
 
 void	free_map(t_map *game)
@@ -92,4 +72,21 @@ void	free_map(t_map *game)
 		i++;
 	}
 	free (game->map);
+}
+void	check_line(char *str, t_map *game, char *line_map)
+{
+	int i;
+
+	i = 0;
+	if (!line_map)
+		(free(str), ft_err(1, game));
+	while (str[i + 1])
+	{
+		if (str[i] == '\n' && str[i + 1] == '\n')
+			(free(str),ft_err(1, game));
+		i++;
+	}
+	game->map = ft_split(str, '\n');
+	if (!game->map)	
+		(free(str), ft_err(1, game));
 }
