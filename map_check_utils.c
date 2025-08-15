@@ -65,7 +65,7 @@ void	has_new_line(char **map, t_map *game)
 	while (map[i])
 	{
 		j = 0;
-		while(map[i][j])
+		while (map[i][j])
 		{
 			if (map[i][j] == '\n')
 				ft_err(3, game);

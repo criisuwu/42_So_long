@@ -23,7 +23,7 @@ void	put_wall(t_map *game)
 	game->wall_img = mlx_xpm_file_to_image(game->mlx, WALL,
 			&game->wall_w, &game->wall_h);
 	if (!game->wall_img)
-		return ;
+		ft_err(8, game);
 	while (game->map[i])
 	{
 		j = 0;
@@ -49,7 +49,7 @@ void	put_floor(t_map *game)
 	game->floor = mlx_xpm_file_to_image(game->mlx, FLOOR,
 			&game->floor_w, &game->floor_h);
 	if (!game->floor)
-		return ;
+		ft_err(8, game);
 	while (game->map[i])
 	{
 		j = 0;
@@ -75,7 +75,7 @@ void	put_exit(t_map *game)
 	game->exit_img = mlx_xpm_file_to_image(game->mlx, EXIT, &game->exit_w,
 			&game->exit_h);
 	if (!game->exit_img)
-		return ;
+		ft_err(8, game);
 	while (game->map[i])
 	{
 		j = 0;
@@ -101,7 +101,7 @@ void	put_player(t_map *game)
 	game->player_img = mlx_xpm_file_to_image(game->mlx, PLAYER, &game->player_w,
 			&game->player_h);
 	if (!game->player_h)
-		return ;
+		ft_err(8, game);
 	while (game->map[i])
 	{
 		j = 0;
@@ -127,7 +127,7 @@ void	put_coin(t_map *game)
 	game->coin_img = mlx_xpm_file_to_image(game->mlx, COIN,
 			&game->coin_w, &game->coin_h);
 	if (!game->coin_img)
-		return ;
+		ft_err(8, game);
 	while (game->map[i])
 	{
 		j = 0;

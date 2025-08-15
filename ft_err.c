@@ -35,6 +35,8 @@ void	ft_err(int option, t_map *game)
 		ft_putendl_fd("WRONG EXTENSION", 2);
 	else if (option == 7)
 		ft_putendl_fd("EMPTY MAP", 2);
+	else if (option == 8)
+		ft_putendl_fd("CAN'T OPEN IMAGE", 2);
 	exit(EXIT_FAILURE);
 }
 
