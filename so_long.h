@@ -97,6 +97,6 @@ int		get_map_width(t_map *game);
 int		key_hook(int keycode, t_map *game);
 int		not_wall(t_map *game, int x, int y);
 char	**read_map(char **argv, t_map *game);
-void	check_line(char *str, t_map *game, char *line_map);
+void	check_line(char *str, t_map *game);
 
 #endif

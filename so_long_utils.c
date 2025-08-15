@@ -37,9 +37,7 @@ char	**read_map(char **argv, t_map *game)
 	char	*temp;
 	int		fd;
 
-	str = ft_strdup("");
-	if (!str)
-		ft_err(1, game);
+	str = ft_strdup("");	
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		(free(str), ft_err(2, game));
@@ -51,11 +49,13 @@ char	**read_map(char **argv, t_map *game)
 		temp = ft_strjoin(str, line_map);
 		free(line_map);
 		if (!str)		
-			(close(fd), ft_err(1, game));		
+			(close(fd), ft_err(2, game));		
 		free(str);
 		str = temp;
 	}
-	(close(fd), check_line(str, game, line_map));
+	if (!str[0])
+		(free(str),ft_err(7, game));
+	(close(fd), check_line(str, game));
 	return (free(str), game->map);
 }
 
@@ -73,20 +73,24 @@ void	free_map(t_map *game)
 	}
 	free (game->map);
 }
-void	check_line(char *str, t_map *game, char *line_map)
+void	check_line(char *str, t_map *game)
 {
 	int i;
 
 	i = 0;
-	if (!line_map)
-		(free(str), ft_err(1, game));
-	while (str[i + 1])
+	if (!str)
+		(free(str), ft_err(2, game));
+	if (str[i])
 	{
-		if (str[i] == '\n' && str[i + 1] == '\n')
-			(free(str),ft_err(1, game));
-		i++;
+		while (str[i + 1])
+		{
+			if (str[i] == '\n' && str[i + 1] == '\n')
+				(free(str),ft_err(1, game));
+			i++;
+		}
 	}
 	game->map = ft_split(str, '\n');
 	if (!game->map)	
 		(free(str), ft_err(1, game));
+
 }
