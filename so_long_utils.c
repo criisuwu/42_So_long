@@ -62,6 +62,12 @@ char	*read_map_recursive(int fd, char *str, t_map *game)
 	line = get_next_line(fd);
 	if (!line)
 		return (str);
+	if (line[0] == '\n' && line[1] == '\0')
+	{
+        free(line);
+        free(str);
+        ft_err(3, game);
+    }
 	temp = ft_strjoin(str, line);
 	free(line);
 	free(str);
