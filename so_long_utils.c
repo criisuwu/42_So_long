@@ -48,7 +48,7 @@ char	**read_map(char **argv, t_map *game)
 	close(fd);
 	game->map = ft_split(str, '\n');
 	free(str);
-	if (!game->map)
+	if (!game->map[0])
 		ft_err(1, game);
 	return (game->map);
 }

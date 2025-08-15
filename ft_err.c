@@ -34,7 +34,7 @@ void	ft_err(int option, t_map *game)
 	else if (option == 6)
 		ft_putendl_fd("WRONG EXTENSION", 2);
 	else if (option == 7)
-		ft_putendl_fd("WRONG MAP", 2);
+		ft_putendl_fd("EMPTY MAP", 2);
 	exit(EXIT_FAILURE);
 }
 
