@@ -77,6 +77,7 @@ void	move_player(t_map *game, int new_x, int new_y);
 void	has_one_player(t_map *game);
 void	has_one_exit(t_map *game);
 void	has_collect(t_map *game);
+void	has_new_line(char **map, t_map *game);
 void	put_wall(t_map *game);
 void	put_floor(t_map *game);
 void	put_exit(t_map *game);

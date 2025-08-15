@@ -55,3 +55,22 @@ void	check_vertical_borders(t_map *game, int i)
 		ft_err(3, game);
 	check_vertical_borders(game, i + 1);
 }
+
+void	has_new_line(char **map, t_map *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while(map[i][j])
+		{
+			if (map[i][j] == '\n')
+				ft_err(3, game);
+			j++;
+		}
+		i++;
+	}
+}

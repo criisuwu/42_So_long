@@ -47,6 +47,7 @@ char	**read_map(char **argv, t_map *game)
 	str = read_map_recursive(fd, str, game);
 	close(fd);
 	game->map = ft_split(str, '\n');
+	has_new_line(game->map, game);
 	free(str);
 	if (!game->map[0])
 		ft_err(1, game);
