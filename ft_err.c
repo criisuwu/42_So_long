@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 14:13:37 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/17 16:33:59 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/17 16:51:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_err_arg(void)
 }
 
 void	ft_err(int option, t_map *game)
-{	
+{
 	free_game_resources(game);
 	if (option == 1)
 		ft_putendl_fd("CAN'T READ MAP ERROR", 2);

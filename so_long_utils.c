@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chomobon <chomobon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:10:45 by chomobon          #+#    #+#             */
-/*   Updated: 2025/08/14 21:17:37 by chomobon         ###   ########.fr       */
+/*   Updated: 2025/08/17 16:54:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**read_map(char **argv, t_map *game)
 	char	*temp;
 	int		fd;
 
-	str = ft_strdup("");	
+	str = ft_strdup("");
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		(free(str), ft_err(2, game));
@@ -48,13 +48,13 @@ char	**read_map(char **argv, t_map *game)
 			break ;
 		temp = ft_strjoin(str, line_map);
 		free(line_map);
-		if (!str)		
-			(close(fd), ft_err(2, game));		
+		if (!str)
+			(close(fd), ft_err(2, game));
 		free(str);
 		str = temp;
 	}
 	if (!str[0])
-		(free(str),ft_err(7, game));
+		(free(str), ft_err(7, game));
 	(close(fd), check_line(str, game));
 	return (free(str), game->map);
 }
@@ -73,9 +73,10 @@ void	free_map(t_map *game)
 	}
 	free (game->map);
 }
+
 void	check_line(char *str, t_map *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -85,12 +86,11 @@ void	check_line(char *str, t_map *game)
 		while (str[i + 1])
 		{
 			if (str[i] == '\n' && str[i + 1] == '\n')
-				(free(str),ft_err(1, game));
+				(free(str), ft_err(1, game));
 			i++;
 		}
 	}
 	game->map = ft_split(str, '\n');
-	if (!game->map)	
+	if (!game->map)
 		(free(str), ft_err(1, game));
-
 }
